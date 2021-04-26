@@ -5,6 +5,8 @@ import { useState } from 'react';
 
 
 function App() {
+  const [showAddTask, setShowAddTask] = useState(false)
+
   // tasks are part of app level state
   const [tasks, setTasks] = useState(
     [
@@ -29,9 +31,12 @@ function App() {
 
   // Add Task
   const addTask = (task) => {
+    // generate random id to add to task
     const id = Math.floor(Math.random() * 10000 + 1)
 
+    // first key of new object is the id, the rest are whatever was in the inputs
     const newTask = { id, ...task }
+    // call on setTasks to add new task to state
     setTasks([...tasks, newTask])
   }
 
@@ -52,10 +57,11 @@ function App() {
     )
   }
 
+
   return (
     <div className="container">
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header onAdd={() => setShowAddTask(!showAddTask)} />
+      {showAddTask && <AddTask onAdd={addTask} />}
       {/* if no tasks in state, render message instead */}
       {tasks.length > 0 ? (<Tasks tasks={tasks}
         onDelete={deleteTask}
