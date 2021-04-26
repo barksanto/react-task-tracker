@@ -1,33 +1,31 @@
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 function App() {
   const [showAddTask, setShowAddTask] = useState(false)
 
   // tasks are part of app level state
-  const [tasks, setTasks] = useState(
-    [
-      {
-        id: 1,
-        text: "doctors",
-        day: 'Tuesday',
-        reminder: true,
-      },
-      {
-        id: 2,
-        text: "grocery",
-        day: 'thursday',
-        reminder: false,
-      }, {
-        id: 3,
-        text: "school",
-        day: 'saturday',
-        reminder: true,
-      }
-    ])
+  const [tasks, setTasks] = useState([])
+
+  // fetch state form backend
+  useEffect(() => {
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks()
+      setTasks(tasksFromServer)
+    }
+    getTasks();
+  }, [])
+
+  // fetch data from backend 
+  const fetchTasks = async () => {
+    const response = await fetch('http://localhost:5000/tasks')
+    const data = await response.json()
+
+    return data
+  }
 
   // Add Task
   const addTask = (task) => {
@@ -42,7 +40,9 @@ function App() {
 
   // delete task- takes the id, which we pass up through props
   // setState of tasks to filter any task whose id does not match our id
-  const deleteTask = (id) => {
+  const deleteTask = async (id) => {
+    await fetch(`http://localhost:5000/tasks/${id}`, { method: 'DELETE' })
+
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
