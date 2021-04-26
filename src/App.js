@@ -27,6 +27,13 @@ function App() {
       }
     ])
 
+  // Add Task
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000 + 1)
+
+    const newTask = { id, ...task }
+    setTasks([...tasks, newTask])
+  }
 
   // delete task- takes the id, which we pass up through props
   // setState of tasks to filter any task whose id does not match our id
@@ -48,7 +55,7 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <AddTask />
+      <AddTask onAdd={addTask} />
       {/* if no tasks in state, render message instead */}
       {tasks.length > 0 ? (<Tasks tasks={tasks}
         onDelete={deleteTask}
