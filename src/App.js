@@ -36,7 +36,9 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} onDelete={deleteTask} />
+      {/* if no tasks in state, render message instead */}
+      {tasks.length > 0 ? <Tasks tasks={tasks}
+        onDelete={deleteTask} /> : "No tasks yet!"}
     </div>
   );
 }
