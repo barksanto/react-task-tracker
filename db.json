@@ -17,6 +17,12 @@
       "day": "tuesday",
       "reminder": false,
       "id": 5
+    },
+    {
+      "text": "laundry",
+      "day": "Wednesday 3pm",
+      "reminder": false,
+      "id": 6
     }
   ]
 }
