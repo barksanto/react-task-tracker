@@ -11,7 +11,7 @@ const Header = ({ title }) => {
   )
 }
 
-// If I wanted to style using an object
+// If I wanted to style using an object (CSS in JS)
 // const headingStyle = {
 //   color: 'red',
 //   backgroundColor: 'black'
