@@ -27,9 +27,10 @@ function App() {
     ])
 
 
-  // delete task
+  // delete task- takes the id, which we pass up through props
+  // setState of tasks to filter any task whose id does not match our id
   const deleteTask = (id) => {
-    console.log('delete', id)
+    setTasks(tasks.filter((task) => task.id !== id))
   }
 
   return (
