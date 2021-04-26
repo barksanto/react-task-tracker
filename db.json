@@ -5,6 +5,18 @@
       "text": "school",
       "day": "saturday",
       "reminder": true
+    },
+    {
+      "text": "study",
+      "day": "all week",
+      "reminder": true,
+      "id": 4
+    },
+    {
+      "text": "play game",
+      "day": "tuesday",
+      "reminder": false,
+      "id": 5
     }
   ]
 }

@@ -28,14 +28,26 @@ function App() {
   }
 
   // Add Task
-  const addTask = (task) => {
-    // generate random id to add to task
-    const id = Math.floor(Math.random() * 10000 + 1)
+  const addTask = async (task) => {
+    const res = await fetch('http://localhost:5000/tasks', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(task),
+    })
 
-    // first key of new object is the id, the rest are whatever was in the inputs
-    const newTask = { id, ...task }
-    // call on setTasks to add new task to state
-    setTasks([...tasks, newTask])
+    const data = await res.json()
+    setTasks([...tasks, data])
+
+
+    // generate random id to add to task
+    // const id = Math.floor(Math.random() * 10000 + 1)
+
+    // // first key of new object is the id, the rest are whatever was in the inputs
+    // const newTask = { id, ...task }
+    // // call on setTasks to add new task to state
+    // setTasks([...tasks, newTask])
   }
 
   // delete task- takes the id, which we pass up through props
