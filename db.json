@@ -11,6 +11,12 @@
       "day": "monday @ 6",
       "reminder": true,
       "id": 2
+    },
+    {
+      "text": "laundry",
+      "day": "wednesday @ 5",
+      "reminder": true,
+      "id": 3
     }
   ]
 }
