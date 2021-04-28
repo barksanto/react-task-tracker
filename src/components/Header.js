@@ -16,12 +16,6 @@ const Header = ({ title, onAdd, showAdd }) => {
   )
 }
 
-// If I wanted to style using an object (CSS in JS)
-// const headingStyle = {
-//   color: 'red',
-//   backgroundColor: 'black'
-// }
-
 Header.defaultProps = {
   title: "Task Tracker",
 }

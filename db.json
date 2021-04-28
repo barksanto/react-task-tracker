@@ -1,28 +1,16 @@
 {
   "tasks": [
     {
-      "id": 3,
-      "text": "school",
-      "day": "saturday",
-      "reminder": true
+      "text": "nap",
+      "day": "monday @ 3",
+      "reminder": false,
+      "id": 1
     },
     {
-      "text": "study",
-      "day": "all week",
+      "text": "dinner",
+      "day": "monday @ 6",
       "reminder": true,
-      "id": 4
-    },
-    {
-      "text": "play game",
-      "day": "tuesday",
-      "reminder": false,
-      "id": 5
-    },
-    {
-      "text": "laundry",
-      "day": "Wednesday 3pm",
-      "reminder": false,
-      "id": 6
+      "id": 2
     }
   ]
 }
