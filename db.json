@@ -17,6 +17,12 @@
       "day": "wednesday @ 5",
       "reminder": true,
       "id": 3
+    },
+    {
+      "text": "breakfast",
+      "day": "thursday @8",
+      "reminder": true,
+      "id": 4
     }
   ]
 }
